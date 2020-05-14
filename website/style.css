@@ -60,6 +60,7 @@ input {
 }
 
 button {
+  display: block;
   width: 400px;
   height: 100px;
   background: #22b2da;
