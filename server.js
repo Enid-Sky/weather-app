@@ -7,9 +7,6 @@ const express = require('express');
 // Start up an instance of app
 const app = express();
 
-
-let url = `http://api.openweathermap.org/data/2.5/weather?q=${zip}&units=imperial&APPID=e131d5ea093dbc7fc2da1a0496c042c8`;
-
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
 const bodyParser = require('body-parser');
@@ -27,10 +24,28 @@ app.use(cors());
 // Initialize the main project folder
 app.use(express.static('website'));
 
-
 /*Dynamic Port*/
 // Setup Server
 const port = process.env.PORT || 3000;
 
 //spin up the server
 app.listen(port, () => console.log(`Listening on port: ${port}`));
+
+
+//GET route
+app.get('/all', function (req, res) {
+  res.status(200);
+  res.send(projectData);
+});
+
+
+//POST route
+app.post('add/', function (req, res) {
+  let newData = req.body;
+  projectData['date'] = newData.date;
+  projectData['temp'] = newData.temp;
+  projectData['zip'] = newData.zip;
+  projectData['feelings'] = newData.feelings;
+  res.status(200);
+  res.send(projectData);
+});
