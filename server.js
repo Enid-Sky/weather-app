@@ -8,6 +8,8 @@ const express = require('express');
 const app = express();
 
 
+let url = `http://api.openweathermap.org/data/2.5/weather?q=${zip}&units=imperial&APPID=e131d5ea093dbc7fc2da1a0496c042c8`;
+
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
 const bodyParser = require('body-parser');
