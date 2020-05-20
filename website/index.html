@@ -3,9 +3,11 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Weather Journal</title>
-  <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald:300, 400,600,700|Ranga:400,700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,20 +17,24 @@
       <h1>My Weather Journal</h1>
     </div>
     <div class="holder zip">
-      <label for="zip">Zipcode</label>
+      <label for="zip">
+        <h2>Zipcode</h2>
+      </label>
       <input type="text" id="zip" placeholder="What is your zipcode?">
     </div>
     <div class="holder feel">
-      <label for="feelings">Journal</label>
+      <label for="feelings">
+        <h2>Journal</h2>
+      </label>
       <textarea class="myInput" id="feelings" placeholder="How do you feel about today?" rows="5" cols="40"
         maxlength="200"></textarea>
       <button id="generate" type="submit"> Generate </button>
     </div>
-    <div class="holder entry">
+    <div class="holder entry" rows="9" cols="50">
       <div id="entryTitle"></div>
       <div id="entryHolder">
         <div id="date"></div>
-        <div id="temp"></div>
+        <div id="temp">--<span>&#176;</span> F.</div>
         <div id="description"></div>
         <div id="content"></div>
       </div>
