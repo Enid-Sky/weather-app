@@ -47,7 +47,7 @@ function addInfo(req, res) {
   newEntry = {
     date: data.date,
     icon: data.icon,
-    temp: data.temp,
+    temp: Math.round(data.temp),
     description: data.description,
     feelings: data.feelings
   }
