@@ -10,7 +10,7 @@ An asynchronous web app that uses Web API and user data to dynamically update th
 * CSS
 * Javascript
 
-## Project Dependencies:
+## Middleware:
 * Cors
 * Body-Parser
 
