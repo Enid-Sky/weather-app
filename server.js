@@ -40,12 +40,20 @@ app.get('/all', function (req, res) {
 
 
 //POST route
-app.post('add/', function (req, res) {
-  let newData = req.body;
-  projectData['date'] = newData.date;
-  projectData['temp'] = newData.temp;
-  projectData['zip'] = newData.zip;
-  projectData['feelings'] = newData.feelings;
-  res.status(200);
-  res.send(projectData);
-});
+app.post('/add', addInfo);
+
+function addInfo(req, res) {
+  let data = req.body;
+  newEntry = {
+    date: data.date,
+    icon: data.icon,
+    temp: data.temp,
+    description: data.description,
+    feelings: data.feelings
+  }
+
+  projectData = newEntry;
+  res.send(projectData)
+
+
+}
