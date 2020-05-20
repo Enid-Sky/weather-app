@@ -1,7 +1,7 @@
 body {
   background: #3b4a6b;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-
+  color: #ffffff,
 }
 
 .container {
@@ -11,51 +11,60 @@ body {
   grid-auto-rows: minmax(150px, auto);
   /* grid-template-columns:  */
   height: 100vh;
-  color: #f8d615;
   justify-items: center;
   grid-gap: 1em;
   font-size: 20px;
   font-family: 'Oswald', sans-serif;
+
 }
 
 .headline {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-
   height: 125px;
   font-family: Pacifico;
   color: #0170a8;
 }
 
-.holder {
-  border: 4px solid salmon;
-}
 
-.entry {
-  background: transparent;
-  border: 2px solid yellow;
-}
+.holder {}
+
+.entry {}
+
 
 #entryHolder {
-  border: 2px solid red;
+  color: #ffffff;
+  width: 300px;
 }
 
-#date {}
+#date {
+  align-items: center;
 
-#temp {}
+}
 
-#description {}
+#temp {
+  align-items: center;
+
+  text-align: center;
+}
+
+#description {
+  text-align: center;
+
+}
 
 #content {
-  border: 2px solid green;
+  border: 5px, solid, blue;
+  word-wrap: break-word;
+  width: 300px;
+  text-align: center;
 }
 
-.headline {
-  border: 2px solid fuchsia;
-}
+.headline {}
 
-.title {}
+#entryTitle {
+
+  text-align: center;
+  color: #ffffff
+}
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
 label {
@@ -69,8 +78,8 @@ input {
   text-align: center;
   height: 60px;
   width: 320px;
-  background: #3b4a6b;
-  color: #f8d615;
+  background: linear-gradient(#111a45, #1c5271);
+  color: #ffffff;
   font-size: 20px;
   font-family: 'Oswald', sans-serif;
   border: none;
@@ -78,15 +87,19 @@ input {
 
 button {
   display: block;
-  margin-left: 100px;
-  width: 300px;
-  height: 100px;
-  background: #22b2da;
-  color: #f8d615;
+  margin-left: 80px;
+
+  width: 250px;
+  height: 80px;
+  /*background: #22b2da;*/
+  background: linear-gradient(#4f125d, #8e4484);
+  /*color: #f8d615;*/
+  color: #ffffff;
   font-size: 26px;
   font-family: 'Oswald', sans-serif;
   border: none;
-  box-shadow: 2px 4px 5px #444;
+  box-shadow: 1px 2px 3px rgb(39, 20, 52);
+  margin-top: 2rem;
 }
 
 h1 {
@@ -94,10 +107,13 @@ h1 {
 }
 
 textarea {
-  background: #3b4a6b;
+  background: linear-gradient(#111a45, #1c5271);
   color: #ffffff;
   font-size: 20px;
   font-family: 'Oswald', sans-serif;
+  border: none;
+  box-shadow: 1px 2px 3px rgb(23, 61, 115);
+
 }
 
 /* Reset style for HTML element on active to have no border*/
@@ -113,6 +129,7 @@ button:focus {
   /* Firefox, Chrome, Opera */
   color: #ffffff;
   font-family: 'Oswald', sans-serif;
+
 
 }
 
