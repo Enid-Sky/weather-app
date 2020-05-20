@@ -119,10 +119,11 @@ const updateUI = async () => {
   try {
     const allData = await request.json();
     console.log('all data:', allData)
-    document.getElementById('entryTitle').innerHTML = `Forecast for today:  ${allData.date}`;
-    document.getElementById('temp').innerHTML = `Current temperature: ${allData.temp} <span>&#176;</span> F.`;
-    document.getElementById('description').innerHTML = `Looks like: ${allData.description}`;
-    document.getElementById('content').innerHTML = `Journal Entry: ${allData.feelings}`;
+    document.getElementById('entryTitle').innerHTML = ` ${allData[0].date}`;
+
+    document.getElementById('temp').innerHTML = `currently: ${allData[0].temp} <span>&#176;</span> F.`;
+    document.getElementById('description').innerHTML = `looks like: ${allData[0].description}`;
+    document.getElementById('content').innerHTML = `journal entry: ${allData[0].feelings}`;
   } finally {
     document.getElementById('zip').value = '';
     document.getElementById('feelings').value = '';
