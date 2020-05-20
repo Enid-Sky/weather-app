@@ -1,7 +1,8 @@
 /* Global Variables */
 
-// Create a new date instance dynamically with JS
 let d = new Date();
+
+// Create a new date instance dynamically with JS
 var month = new Array();
 month[0] = "January";
 month[1] = "February";
@@ -18,7 +19,11 @@ month[11] = "December";
 
 let newDate = month[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
 
+//Validate user input
 
+function validateInput() {
+  let a = document.input
+}
 // API Key for OpenWeatherMap API
 
 const baseURL = 'https://api.openweathermap.org/data/2.5/weather?q=';
@@ -27,6 +32,7 @@ const country = ',US&units=imperial'
 
 
 const apiKey = '&APPID=e131d5ea093dbc7fc2da1a0496c042c8';
+
 
 
 
@@ -39,6 +45,32 @@ document.getElementById('generate').addEventListener('click', getData);
 function getData(e) {
   const zip = document.getElementById('zip').value;
   const feelings = document.getElementById('feelings').value;
+  if (zip == '' || zip == null || zip.length > 6) {
+    alert("Please, enter a valid zip code")
+    document.getElementById('zip').value = '';
+
+  } else if (feelings == '') {
+    alert("Please enter a journal entry for today")
+  } else if (feelings.length > 200) {
+    alert("You are over the 200 character limit. Please shorten your entry.")
+
+  }
+
+
+  /* Function to GET Web API Data*/
+
+  const getWeatherData = async (baseURL, zip, country, apiKey) => {
+    const res = await fetch(baseURL + zip + country + apiKey);
+    try {
+      //await data in JSON form
+      const data = await res.json();
+      //do something with data here
+      return data;
+    } catch (err) {
+      //handle the error here
+      console.error('error', err);
+    }
+  }
 
   //callback function
   getWeatherData(baseURL, zip, country, apiKey)
@@ -55,21 +87,6 @@ function getData(e) {
   console.log(baseURL + zip + country + apiKey)
 }
 
-
-/* Function to GET Web API Data*/
-
-const getWeatherData = async (baseURL, zip, country, apiKey) => {
-  const res = await fetch(baseURL + zip + country + apiKey);
-  try {
-    //await data in JSON form
-    const data = await res.json();
-    //do something with data here
-    return data;
-  } catch (err) {
-    //handle the error here
-    console.error('error', err);
-  }
-}
 
 
 /* Function to POST data */
@@ -102,10 +119,10 @@ const updateUI = async () => {
   try {
     const allData = await request.json();
     console.log('all data:', allData)
-    document.getElementById('date').innerHTML = allData.date;
-    document.getElementById('temp').innerHTML = `${allData.temp} F`;
-    document.getElementById('description').innerHTML = allData.description;
-    document.getElementById('content').innerHTML = allData.feelings;
+    document.getElementById('entryTitle').innerHTML = `Forecast for today:  ${allData.date}`;
+    document.getElementById('temp').innerHTML = `Current temperature: ${allData.temp} <span>&#176;</span> F.`;
+    document.getElementById('description').innerHTML = `Looks like: ${allData.description}`;
+    document.getElementById('content').innerHTML = `Journal Entry: ${allData.feelings}`;
   } finally {
     document.getElementById('zip').value = '';
     document.getElementById('feelings').value = '';
