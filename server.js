@@ -51,7 +51,6 @@ function addInfo(req, res) {
     feelings: data.feelings
   }
 
-
   projectData.push(newEntry);
   res.send(projectData)
 
