@@ -84,7 +84,7 @@ function getData(e) {
       })
       updateUI('/all')
     });
-  console.log(baseURL + zip + country + apiKey)
+
 }
 
 
@@ -118,9 +118,8 @@ const updateUI = async () => {
   const request = await fetch('/all');
   try {
     const allData = await request.json();
-    console.log('all data:', allData)
-    document.getElementById('entryTitle').innerHTML = ` ${allData[0].date}`;
 
+    document.getElementById('entryTitle').innerHTML = ` ${allData[0].date}`;
     document.getElementById('temp').innerHTML = `currently: ${allData[0].temp} <span>&#176;</span> F.`;
     document.getElementById('description').innerHTML = `looks like: ${allData[0].description}`;
     document.getElementById('content').innerHTML = `journal entry: ${allData[0].feelings}`;
